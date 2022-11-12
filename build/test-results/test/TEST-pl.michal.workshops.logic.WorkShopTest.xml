@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pl.michal.workshops.logic.WorkShopTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-07T12:13:19" hostname="DESKTOP-UJADRPA" time="0.036">
+<testsuite name="pl.michal.workshops.logic.WorkShopTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-12T12:35:02" hostname="DESKTOP-UJADRPA" time="0.025">
   <properties/>
-  <testcase name="shouldReturnAllCompaniesNameAsLinkedList" classname="pl.michal.workshops.logic.WorkShopTest" time="0.036"/>
+  <testcase name="shouldCountAllUsersInAllCompanies" classname="pl.michal.workshops.logic.WorkShopTest" time="0.025"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c6dc538-fd35-4d73-9fad-7ad277827c34" name="Default" comment="" />
+    <list default="true" id="2c6dc538-fd35-4d73-9fad-7ad277827c34" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/streamy2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/jvmClassSignatures.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/jvmClassSignatures.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.michal.workshops.logic.WorkShopTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/pl.michal.workshops.logic.WorkShopTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.michal.workshops.logic.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/pl.michal.workshops.logic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-pl.michal.workshops.logic.WorkShopTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-pl.michal.workshops.logic.WorkShopTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/domain/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/domain/Holding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/domain/Holding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/logic/WorkShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/michal/workshops/logic/WorkShop.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +70,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -251,12 +272,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="stream&#9;FILE&#9;jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/stream/Stream.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553941914191" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ww/java8-stream-free-exercises-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17477004" />
@@ -264,14 +288,20 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="pl.klolo.workshops.logic" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java/pl/klolo/workshops/logic/kata" />
       <recent name="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/mock" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/java/pl/klolo/workshops/domain" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="pl.michal.workshops.domain" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pl.klolo.workshops.logic" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -280,7 +310,7 @@
       <command value="gradle --build-cache" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsLinkedList">
+  <component name="RunManager" selected="Gradle.WorkShopTest.shouldCountAllUsersInAllCompanies">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -293,12 +323,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkShopTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WorkShopTest.shouldCountAllUsersInAllCompanies" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldCountAllUsersInAllCompanies&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -314,12 +344,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="WorkShopTest.shouldReturnAllCompaniesNameAsLinkedList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WorkShopTest.shouldCountCompaniesInHoldings" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnAllCompaniesNameAsLinkedList&quot;" />
+        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldCountCompaniesInHoldings&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -335,12 +365,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="WorkShopTest.shouldReturnAllCompaniesNameAsString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WorkShopTest.shouldReturnAmountOfHoldingWhereIsAtLeastOneCompany" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnAllCompaniesNameAsString&quot;" />
+        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnAmountOfHoldingWhereIsAtLeastOneCompany&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -356,12 +386,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="WorkShopTest.shouldReturnAllCompaniesNameAsStringUsingStringBuilder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WorkShopTest.shouldReturnLowerCaseNameOfAllHoldings" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnAllCompaniesNameAsStringUsingStringBuilder&quot;" />
+        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnLowerCaseNameOfAllHoldings&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -377,12 +407,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="WorkShopTest.shouldReturnHowMuchAccountHaveUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WorkShopTest.shouldReturnNamesOfAllHoldingInString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnHowMuchAccountHaveUsers&quot;" />
+        <option name="scriptParameters" value="--tests &quot;pl.michal.workshops.logic.WorkShopTest.shouldReturnNamesOfAllHoldingInString&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -424,19 +454,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsLinkedList" />
-      <item itemvalue="Gradle.WorkShopTest" />
-      <item itemvalue="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsString" />
-      <item itemvalue="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsStringUsingStringBuilder" />
-      <item itemvalue="Gradle.WorkShopTest.shouldReturnHowMuchAccountHaveUsers" />
+      <item itemvalue="Gradle.WorkShopTest.shouldCountAllUsersInAllCompanies" />
+      <item itemvalue="Gradle.WorkShopTest.shouldReturnAmountOfHoldingWhereIsAtLeastOneCompany" />
+      <item itemvalue="Gradle.WorkShopTest.shouldReturnLowerCaseNameOfAllHoldings" />
+      <item itemvalue="Gradle.WorkShopTest.shouldReturnNamesOfAllHoldingInString" />
+      <item itemvalue="Gradle.WorkShopTest.shouldCountCompaniesInHoldings" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsLinkedList" />
-        <item itemvalue="Gradle.WorkShopTest.shouldReturnHowMuchAccountHaveUsers" />
-        <item itemvalue="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsStringUsingStringBuilder" />
-        <item itemvalue="Gradle.WorkShopTest.shouldReturnAllCompaniesNameAsString" />
-        <item itemvalue="Gradle.WorkShopTest" />
+        <item itemvalue="Gradle.WorkShopTest.shouldCountAllUsersInAllCompanies" />
+        <item itemvalue="Gradle.WorkShopTest.shouldCountCompaniesInHoldings" />
+        <item itemvalue="Gradle.WorkShopTest.shouldReturnNamesOfAllHoldingInString" />
+        <item itemvalue="Gradle.WorkShopTest.shouldReturnLowerCaseNameOfAllHoldings" />
+        <item itemvalue="Gradle.WorkShopTest.shouldReturnAmountOfHoldingWhereIsAtLeastOneCompany" />
       </list>
     </recent_temporary>
   </component>
@@ -545,6 +575,18 @@
         <option value="$USER_HOME$/demo1.js" />
       </list>
     </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

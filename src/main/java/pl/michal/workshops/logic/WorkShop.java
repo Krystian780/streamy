@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,14 +31,20 @@ class WorkShop {
      * 1 Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma.
      */
     long getHoldingsWhereAreCompanies() {
-       return holdings.stream().filter(Holding::isEmpty).count();
+       return holdings.stream()
+               .map(Holding::getCompanies)
+               .filter(holdings -> !holdings.isEmpty())
+               .count();
     }
 
     /**
      * 2 Zwraca nazwy wszystkich holdingów pisane z małej litery w formie listy.
      */
     List<String> getHoldingNames() {
-        return holdings.stream().map(Holding::getName).map(String::toLowerCase).collect(Collectors.toList());
+        return holdings.stream()
+                .map(Holding::getName)
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -46,7 +52,9 @@ class WorkShop {
      * String ma postać: (Coca-Cola, Nestle, Pepsico)
      */
     String getHoldingNamesAsString() {
-       return holdings.stream().map(Holding::getName).sorted()
+       return holdings.stream()
+                .map(Holding::getName)
+                .sorted()
                 .collect(Collectors.joining(", ", "(", ")"));
     }
 
@@ -54,14 +62,20 @@ class WorkShop {
      * 4 Zwraca liczbę firm we wszystkich holdingach.
      */
     long getCompaniesAmount() {
-        return holdings.stream().map(Holding::getAmount).mapToInt(i -> i ).sum();
+        return holdings.stream()
+                .mapToInt(holding -> holding.getCompanies().size())
+                .sum();
     }
 
     /**
      * 5 Zwraca liczbę wszystkich pracowników we wszystkich firmach.
      */
     long getAllUserAmount() {
-        return holdings.stream().map(Holding::getAllUsers).mapToInt(i -> Math.toIntExact(i)).sum();
+        return holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(Collection::stream)
+                .mapToInt(company -> company.getUsers().size())
+                .sum();
     }
 
     /**
@@ -69,22 +83,33 @@ class WorkShop {
      * później będziesz wykorzystywać.
      */
     List<String> getAllCompaniesNames() {
-        return holdings.stream().map(Holding::getAllCompanyNames).flatMap(List::stream).collect(Collectors.toList());
+        return holdings.stream()
+                .map(Holding::getAllCompanyNames)
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
     }
 
     /**
      * Zwraca listę wszystkich firm jako listę, której implementacja to LinkedList. Obiektów nie przepisujemy
-     * po zakończeniu działania strumienia.
+     * po zakończeniu działania strumienia.adasdasd
      */
     LinkedList<String> getAllCompaniesNamesAsLinkedList() {
-        return holdings.stream().map(Holding::getAllCompanyNames).flatMap(List::stream).collect(Collectors.toCollection(LinkedList::new));
+        return holdings
+                .stream()
+                .map(Holding::getAllCompanyNames)
+                .flatMap(List::stream)
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**
      * Zwraca listę firm jako String gdzie poszczególne firmy są oddzielone od siebie znakiem "+"
      */
     String getAllCompaniesNamesAsString() {
-        return holdings.stream().map(Holding::getAllCompanyNames).flatMap(List::stream).collect(Collectors.joining("+" ));
+        return holdings
+                .stream()
+                .map(Holding::getAllCompanyNames)
+                .flatMap(List::stream)
+                .collect(Collectors.joining("+" ));
     }
 
     /**
@@ -94,15 +119,19 @@ class WorkShop {
      * UWAGA: Zadanie z gwiazdką. Nie używamy zmiennych.
      */
     String getAllCompaniesNamesAsStringUsingStringBuilder() {
-        return holdings.stream().map(Holding::getAllCompanyNames).flatMap(List::stream).collect(StringBuilder::new, (x, y) -> x.append("+").append(y),
-                (a, b) -> a.append(",").append(b)).toString().substring(1);
+        return holdings
+                    .stream()
+                    .map(Holding::getAllCompanyNames)
+                    .flatMap(List::stream)
+                    .collect(StringBuilder::new, (x, y) -> x.append("+").append(y), (a, b) -> a.append(",").append(b))
+                    .substring(1);
     }
 
     /**
      * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
      */
-    long getAllUserAccountsAmount() {//x
-        return holdings.stream().map(Holding::getAllAccountsInACompany).collect(Collectors.summingInt(Long::intValue));
+    long getAllUserAccountsAmount() {
+        return 0;
     }
 
     /**
