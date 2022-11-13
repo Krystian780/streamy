@@ -146,8 +146,7 @@ class WorkShop {
      * występują bez powtórzeń i są posortowane.
      */
     String getAllCurrencies() {
-        return null;
-        /*  holdings.stream()
+        return holdings.stream()
                 .map(Holding::getCompanies)
                 .flatMap(List::stream)
                 .map(Company::getUsers)
@@ -155,10 +154,9 @@ class WorkShop {
                 .map(User::getAccounts)
                 .flatMap(List::stream)
                 .map(Account::getCurrency)
+                .map(Currency::name)
                 .distinct()
-                .collect(Collectors.toList());
-
-         */
+                .collect(Collectors.joining());
     }
 
     /**
