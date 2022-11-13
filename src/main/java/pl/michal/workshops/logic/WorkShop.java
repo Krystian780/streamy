@@ -130,8 +130,9 @@ class WorkShop {
     /**
      * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
      */
-    long getAllUserAccountsAmount() {//x
-        return holdings.stream().map(Holding::getAllAccountsInACompany).collect(Collectors.summingInt(Long::intValue));
+    long getAllUserAccountsAmount() {
+        return 0;
+       // return holdings.stream().map(Holding::getAllAccountsInACompany).collect(Collectors.summingInt(Long::intValue));
     }
 
     /**
@@ -140,6 +141,18 @@ class WorkShop {
      */
     String getAllCurrencies() {
         return null;
+        /*  holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .map(Company::getUsers)
+                .flatMap(List::stream)
+                .map(User::getAccounts)
+                .flatMap(List::stream)
+                .map(Account::getCurrency)
+                .distinct()
+                .collect(Collectors.toList());
+
+         */
     }
 
     /**
