@@ -20,8 +20,4 @@ public class Company {
         return name;
     }
 
-    public long getAccounts(){
-        return users.stream().map(User::getAccountsSize).collect(Collectors.summingInt(Long::intValue));
-    }
-
 }

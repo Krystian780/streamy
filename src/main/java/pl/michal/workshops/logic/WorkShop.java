@@ -131,8 +131,14 @@ class WorkShop {
      * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
      */
     long getAllUserAccountsAmount() {
-        return 0;
-       // return holdings.stream().map(Holding::getAllAccountsInACompany).collect(Collectors.summingInt(Long::intValue));
+        return holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .map(Company::getUsers)
+                .flatMap(List::stream)
+                .map(User::getAccounts)
+                .mapToLong(List::size)
+                .sum();
     }
 
     /**
