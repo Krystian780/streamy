@@ -156,7 +156,8 @@ class WorkShop {
                 .map(Account::getCurrency)
                 .map(Currency::name)
                 .distinct()
-                .collect(Collectors.joining());
+                .sorted()
+                .collect(Collectors.joining(", "));
     }
 
     /**
@@ -178,7 +179,10 @@ class WorkShop {
      * w osobnej metodzie. Predicate określający czy mamy do czynienia z kobietą niech będzie polem statycznym w klasie.
      */
     long getWomanAmount() {
-        return 0;
+        return holdings.stream()
+                .flatMap(Holding::getUsers)
+                .filter(isWoman)
+                .count();
     }
 
 
