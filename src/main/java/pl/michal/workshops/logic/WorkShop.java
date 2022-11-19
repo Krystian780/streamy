@@ -5,6 +5,7 @@ import pl.michal.workshops.domain.*;
 import pl.michal.workshops.mock.HoldingMockGenerator;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -190,7 +191,15 @@ class WorkShop {
      * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency.
      */
     BigDecimal getAccountAmountInPLN(final Account account) {
-        return new BigDecimal(0);
+        BigDecimal bigDecimalTwoDecimal = new BigDecimal(String.valueOf(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)).setScale(3, RoundingMode.CEILING)));
+        float fromBigDecimalToFloat = bigDecimalTwoDecimal.floatValue();
+        String fromStringToFloat = String.format("%.2f", fromBigDecimalToFloat);
+        fromStringToFloat = fromStringToFloat.replace(",", ".");
+        String threeDecimals = fromStringToFloat.concat("0");
+        if(fromBigDecimalToFloat-(int)fromBigDecimalToFloat==0)
+        return new BigDecimal(fromStringToFloat);
+        else
+        return new BigDecimal(threeDecimals);
     }
 
     /**
