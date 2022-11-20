@@ -29,10 +29,4 @@ public class Holding implements Comparable<Holding> {
         return 0;
     }
 
-    public Stream<User> getUsers(){
-        return companies.stream()
-                .map(Company::getUsers)
-                .flatMap(List::stream);
-    }
-
 }

@@ -28,6 +28,14 @@ class WorkShop {
         holdings = holdingMockGenerator.generate();
     }
 
+    public Stream<User> getAllAccounts(){
+        return holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .map(Company::getUsers)
+                .flatMap(List::stream);
+    }
+
     /**
      * 1 Metoda zwraca liczbę holdingów w których jest przynajmniej jedna firma.
      */
@@ -180,8 +188,7 @@ class WorkShop {
      * w osobnej metodzie. Predicate określający czy mamy do czynienia z kobietą niech będzie polem statycznym w klasie.
      */
     long getWomanAmount() {
-        return holdings.stream()
-                .flatMap(Holding::getUsers)
+        return getAllAccounts()
                 .filter(isWoman)
                 .count();
     }
@@ -193,11 +200,11 @@ class WorkShop {
     BigDecimal getAccountAmountInPLN(final Account account) {
         BigDecimal bigDecimalTwoDecimal = new BigDecimal(String.valueOf(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)).setScale(3, RoundingMode.CEILING)));
         float fromBigDecimalToFloat = bigDecimalTwoDecimal.floatValue();
-        String fromStringToFloat = String.format("%.2f", fromBigDecimalToFloat);
-        fromStringToFloat = fromStringToFloat.replace(",", ".");
-        String threeDecimals = fromStringToFloat.concat("0");
+        String floatFromStringThreeDecimals = String.format("%.2f", fromBigDecimalToFloat);
+        floatFromStringThreeDecimals = floatFromStringThreeDecimals.replace(",", ".");
+        String threeDecimals = floatFromStringThreeDecimals.concat("0");
         if(fromBigDecimalToFloat-(int)fromBigDecimalToFloat==0)
-            return new BigDecimal(fromStringToFloat);
+            return new BigDecimal(floatFromStringThreeDecimals);
         else
             return new BigDecimal(threeDecimals);
     }
