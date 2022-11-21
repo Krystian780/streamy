@@ -1,5 +1,6 @@
 package pl.michal.workshops.logic;
 
+import javafx.util.Pair;
 import pl.michal.workshops.domain.Currency;
 import pl.michal.workshops.domain.*;
 import pl.michal.workshops.mock.HoldingMockGenerator;
@@ -213,7 +214,9 @@ class WorkShop {
      * Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency i sumuje ją.
      */
     BigDecimal getTotalCashInPLN(final List<Account> accounts) {
-        return new BigDecimal(0);
+        return accounts.stream()
+                .map(x -> (x.getAmount().multiply(BigDecimal.valueOf(x.getCurrency().rate))))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     /**
