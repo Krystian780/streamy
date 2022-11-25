@@ -5,6 +5,7 @@ import pl.michal.workshops.domain.*;
 import pl.michal.workshops.mock.HoldingMockGenerator;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -131,8 +132,14 @@ class WorkShop {
      * Zwraca liczbę wszystkich rachunków, użytkowników we wszystkich firmach.
      */
     long getAllUserAccountsAmount() {
-        return 0;
-       // return holdings.stream().map(Holding::getAllAccountsInACompany).collect(Collectors.summingInt(Long::intValue));
+        return holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .map(Company::getUsers)
+                .flatMap(List::stream)
+                .map(User::getAccounts)
+                .mapToLong(List::size)
+                .sum();
     }
 
     /**
@@ -140,8 +147,7 @@ class WorkShop {
      * występują bez powtórzeń i są posortowane.
      */
     String getAllCurrencies() {
-        return null;
-        /*  holdings.stream()
+        return holdings.stream()
                 .map(Holding::getCompanies)
                 .flatMap(List::stream)
                 .map(Company::getUsers)
@@ -149,10 +155,10 @@ class WorkShop {
                 .map(User::getAccounts)
                 .flatMap(List::stream)
                 .map(Account::getCurrency)
+                .map(Currency::name)
                 .distinct()
-                .collect(Collectors.toList());
-
-         */
+                .sorted()
+                .collect(Collectors.joining(", "));
     }
 
     /**
@@ -174,7 +180,10 @@ class WorkShop {
      * w osobnej metodzie. Predicate określający czy mamy do czynienia z kobietą niech będzie polem statycznym w klasie.
      */
     long getWomanAmount() {
-        return 0;
+        return holdings.stream()
+                .flatMap(Holding::getUsers)
+                .filter(isWoman)
+                .count();
     }
 
 
@@ -182,7 +191,15 @@ class WorkShop {
      * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency.
      */
     BigDecimal getAccountAmountInPLN(final Account account) {
-        return new BigDecimal(0);
+        BigDecimal bigDecimalTwoDecimal = new BigDecimal(String.valueOf(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)).setScale(3, RoundingMode.CEILING)));
+        float fromBigDecimalToFloat = bigDecimalTwoDecimal.floatValue();
+        String fromStringToFloat = String.format("%.2f", fromBigDecimalToFloat);
+        fromStringToFloat = fromStringToFloat.replace(",", ".");
+        String threeDecimals = fromStringToFloat.concat("0");
+        if(fromBigDecimalToFloat-(int)fromBigDecimalToFloat==0)
+        return new BigDecimal(fromStringToFloat);
+        else
+        return new BigDecimal(threeDecimals);
     }
 
     /**
