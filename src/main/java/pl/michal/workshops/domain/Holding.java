@@ -33,6 +33,4 @@ public class Holding implements Comparable<Holding> {
                 .flatMap(List::stream);
     }
 
-
-
 }
