@@ -1,5 +1,6 @@
 package pl.michal.workshops.logic;
 
+import javafx.util.Pair;
 import pl.michal.workshops.domain.Currency;
 import pl.michal.workshops.domain.*;
 import pl.michal.workshops.mock.HoldingMockGenerator;
@@ -26,6 +27,14 @@ class WorkShop {
     WorkShop() {
         final HoldingMockGenerator holdingMockGenerator = new HoldingMockGenerator();
         holdings = holdingMockGenerator.generate();
+    }
+
+    public Stream<User> getAllAccounts(){
+        return holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .map(Company::getUsers)
+                .flatMap(List::stream);
     }
 
     /**
@@ -180,6 +189,9 @@ class WorkShop {
      * w osobnej metodzie. Predicate określający czy mamy do czynienia z kobietą niech będzie polem statycznym w klasie.
      */
     long getWomanAmount() {
+
+        return getAllAccounts()
+        
         return holdings.stream()
                 .flatMap(Holding::getUsers)
                 .filter(isWoman)
@@ -193,6 +205,13 @@ class WorkShop {
     BigDecimal getAccountAmountInPLN(final Account account) {
         BigDecimal bigDecimalTwoDecimal = new BigDecimal(String.valueOf(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)).setScale(3, RoundingMode.CEILING)));
         float fromBigDecimalToFloat = bigDecimalTwoDecimal.floatValue();
+        String floatFromStringThreeDecimals = String.format("%.2f", fromBigDecimalToFloat);
+        floatFromStringThreeDecimals = floatFromStringThreeDecimals.replace(",", ".");
+        String threeDecimals = floatFromStringThreeDecimals.concat("0");
+        if(fromBigDecimalToFloat-(int)fromBigDecimalToFloat==0)
+            return new BigDecimal(floatFromStringThreeDecimals);
+        else
+            return new BigDecimal(threeDecimals);
         String fromStringToFloat = String.format("%.2f", fromBigDecimalToFloat);
         fromStringToFloat = fromStringToFloat.replace(",", ".");
         String threeDecimals = fromStringToFloat.concat("0");
@@ -206,14 +225,19 @@ class WorkShop {
      * Przelicza kwotę na podanych rachunkach na złotówki za pomocą kursu określonego w enum Currency i sumuje ją.
      */
     BigDecimal getTotalCashInPLN(final List<Account> accounts) {
-        return new BigDecimal(0);
+        return accounts.stream()
+                .map(x -> (x.getAmount().multiply(BigDecimal.valueOf(x.getCurrency().rate))))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     /**
      * Zwraca imiona użytkowników w formie zbioru, którzy spełniają podany warunek.
      */
     Set<String> getUsersForPredicate(final Predicate<User> userPredicate) {
-        return null;
+        return getAllAccounts()
+                .filter(userPredicate)
+                .map(User::getFirstName)
+                .collect(Collectors.toSet());
     }
 
     /**
