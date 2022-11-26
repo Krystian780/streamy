@@ -12,4 +12,16 @@ public enum Currency {
         this.rate = rate;
     }
 
+    @Override
+    public String toString() {
+        return "Currency{" +
+                "rate=" + rate +
+                '}';
+    }
+
+    public float getRate() {
+        return rate;
+    }
+
+
 }

@@ -189,7 +189,11 @@ class WorkShop {
      * w osobnej metodzie. Predicate określający czy mamy do czynienia z kobietą niech będzie polem statycznym w klasie.
      */
     long getWomanAmount() {
+
         return getAllAccounts()
+        
+        return holdings.stream()
+                .flatMap(Holding::getUsers)
                 .filter(isWoman)
                 .count();
     }
@@ -208,6 +212,13 @@ class WorkShop {
             return new BigDecimal(floatFromStringThreeDecimals);
         else
             return new BigDecimal(threeDecimals);
+        String fromStringToFloat = String.format("%.2f", fromBigDecimalToFloat);
+        fromStringToFloat = fromStringToFloat.replace(",", ".");
+        String threeDecimals = fromStringToFloat.concat("0");
+        if(fromBigDecimalToFloat-(int)fromBigDecimalToFloat==0)
+        return new BigDecimal(fromStringToFloat);
+        else
+        return new BigDecimal(threeDecimals);
     }
 
     /**

@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,6 +25,12 @@ public class Holding implements Comparable<Holding> {
     @Override
     public int compareTo(Holding o) {
         return 0;
+    }
+
+    public Stream<User> getUsers(){
+        return companies.stream()
+                .map(Company::getUsers)
+                .flatMap(List::stream);
     }
 
 }
