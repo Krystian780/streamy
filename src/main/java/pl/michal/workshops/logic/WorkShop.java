@@ -6,6 +6,7 @@ import pl.michal.workshops.domain.*;
 import pl.michal.workshops.mock.HoldingMockGenerator;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Consumer;
@@ -35,6 +36,20 @@ class WorkShop {
                 .flatMap(List::stream)
                 .map(Company::getUsers)
                 .flatMap(List::stream);
+    }
+
+    BigDecimal getAccountAmountInPLNFromAUser(final Account account) {
+        return account
+                .getAmount()
+                .multiply(BigDecimal.valueOf(account.getCurrency().rate))
+                .round(new MathContext(4, RoundingMode.HALF_UP));
+    }
+
+    BigDecimal getEmployeeAmountInPLN(final User user) {
+        return user.getAccounts()
+                .stream()
+                .map(this::getAccountAmountInPLN)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     /**
@@ -242,7 +257,10 @@ class WorkShop {
      * Dla każdej firmy uruchamia przekazaną metodę.
      */
     void executeForEachCompany(final Consumer<Company> consumer) {
-
+         holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .forEach(consumer::accept);
     }
 
     /**
@@ -250,7 +268,9 @@ class WorkShop {
      */
     //pomoc w rozwiązaniu problemu w zadaniu: https://stackoverflow.com/a/55052733/9360524
     Optional<User> getRichestWoman() {
-        return null;
+        return getAllAccounts()
+                .filter(isWoman)
+                .max(Comparator.comparing(this::getEmployeeAmountInPLN));
     }
 
     private BigDecimal getUserAmountInPLN(final User user) {
