@@ -1,7 +1,7 @@
 package pl.michal.workshops.logic;
 
-import javafx.util.Pair;
 import pl.michal.workshops.domain.Currency;
+import pl.michal.workshops.domain.ExchangeRates;
 import pl.michal.workshops.domain.*;
 import pl.michal.workshops.mock.HoldingMockGenerator;
 
@@ -12,7 +12,6 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,18 +37,30 @@ class WorkShop {
                 .flatMap(List::stream);
     }
 
-    BigDecimal getAccountAmountInPLNFromAUser(final Account account) {
-        return account
-                .getAmount()
-                .multiply(BigDecimal.valueOf(account.getCurrency().rate))
-                .round(new MathContext(4, RoundingMode.HALF_UP));
-    }
-
     BigDecimal getEmployeeAmountInPLN(final User user) {
         return user.getAccounts()
                 .stream()
                 .map(this::getAccountAmountInPLN)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    float getExchangeRate(String currency){
+        float exchangeRate = 0;
+        switch (currency){
+            case "PLN":
+                exchangeRate = 1.0f;
+                break;
+            case "EUR":
+                exchangeRate = 4.23f;
+                break;
+            case "CHF":
+                exchangeRate = 3.83f;
+                break;
+            case "USD":
+                exchangeRate = 3.72f;
+                break;
+        }
+        return exchangeRate;
     }
 
     /**
@@ -215,7 +226,7 @@ class WorkShop {
      * Przelicza kwotę na rachunku na złotówki za pomocą kursu określonego w enum Currency.
      */
     BigDecimal getAccountAmountInPLN(final Account account) {
-        BigDecimal bigDecimalTwoDecimal = new BigDecimal(String.valueOf(account.getAmount().multiply(BigDecimal.valueOf(account.getCurrency().rate)).setScale(3, RoundingMode.CEILING)));
+        BigDecimal bigDecimalTwoDecimal = new BigDecimal(String.valueOf(account.getAmount().multiply(BigDecimal.valueOf(getExchangeRate(account.getCurrency().getCurrency())).setScale(3, RoundingMode.CEILING))));
         float fromBigDecimalToFloat = bigDecimalTwoDecimal.floatValue();
         String floatFromStringThreeDecimals = String.format("%.2f", fromBigDecimalToFloat);
         floatFromStringThreeDecimals = floatFromStringThreeDecimals.replace(",", ".");
@@ -231,7 +242,7 @@ class WorkShop {
      */
     BigDecimal getTotalCashInPLN(final List<Account> accounts) {
         return accounts.stream()
-                .map(x -> (x.getAmount().multiply(BigDecimal.valueOf(x.getCurrency().rate))))
+                .map(x -> (x.getAmount().multiply(BigDecimal.valueOf(getExchangeRate(x.getCurrency().getCurrency())))))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
@@ -428,7 +439,7 @@ class WorkShop {
     /**
      * Zwraca zbiór walut w jakich są rachunki.
      */
-    private Set<Currency> getCurenciesSet() {
+    private Set<ExchangeRates> getCurenciesSet() {
         return null;
     }
 
