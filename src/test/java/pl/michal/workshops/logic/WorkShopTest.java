@@ -2,10 +2,8 @@ package pl.michal.workshops.logic;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.michal.workshops.domain.Account;
-import pl.michal.workshops.domain.AccountType;
+import pl.michal.workshops.domain.*;
 import pl.michal.workshops.domain.Currency;
-import pl.michal.workshops.domain.User;
 
 import java.math.BigDecimal;
 import java.util.*;

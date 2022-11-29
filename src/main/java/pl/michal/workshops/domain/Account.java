@@ -12,4 +12,5 @@ public class Account {
     private final String number;
     private final BigDecimal amount;
     private final Currency currency;
+    private final ExchangeRates rate;
 }
