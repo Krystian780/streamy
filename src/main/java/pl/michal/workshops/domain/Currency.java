@@ -1,27 +1,19 @@
 package pl.michal.workshops.domain;
 
+
 public enum Currency {
-    PLN(1.0f),
-    EUR(4.23f),
-    USD(3.72f),
-    CHF(3.83f);
+    EUR("EUR"),
+    USD("USD"),
+    PLN("PLN"),
+    CHF("CHF");
 
-    public final float rate;
+    public final String currency;
 
-    Currency(final float rate) {
-        this.rate = rate;
+    Currency(String currency) {
+        this.currency = currency;
     }
 
-    @Override
-    public String toString() {
-        return "Currency{" +
-                "rate=" + rate +
-                '}';
+    public String getCurrency() {
+        return currency;
     }
-
-    public float getRate() {
-        return rate;
-    }
-
-
 }
