@@ -34,4 +34,15 @@ public class WorkShopTest {
         assertEquals("[nestle, coca-cola, pepsico]", holdingNames.toString());
     }
 
+
+    /**
+     * 3.
+     */
+    @Test
+    public void shouldReturnHoldingsAsOneString() {
+        final String holdingAsOneString = workShop.getHoldingNamesAsString();
+        assertEquals("(Coca-Cola, Nestle, Pepsico)", holdingAsOneString);
+    }
+
+
 }
