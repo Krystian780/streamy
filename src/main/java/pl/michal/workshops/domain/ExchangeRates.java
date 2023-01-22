@@ -1,6 +1,6 @@
 package pl.michal.workshops.domain;
 
-public enum Currency {
+public enum ExchangeRates {
     PLN(1.0f),
     EUR(4.23f),
     USD(3.72f),
@@ -8,7 +8,7 @@ public enum Currency {
 
     public final float rate;
 
-    Currency(final float rate) {
+    ExchangeRates(final float rate) {
         this.rate = rate;
     }
 
@@ -22,6 +22,5 @@ public enum Currency {
     public float getRate() {
         return rate;
     }
-
 
 }

@@ -261,7 +261,11 @@ class WorkShop {
      * i zwraca ich imiona w formie listy.
      */
     List<String> getOldWoman(final int age) {
-        return null;
+        return getAllAccounts()
+               .filter(x -> x.getSex().equals(Sex.MAN))
+               .filter(x -> x.getAge()>age)
+               .map(User::getFirstName)
+               .collect(Collectors.toList());
     }
 
     /**
@@ -291,8 +295,12 @@ class WorkShop {
     /**
      * Zwraca nazwy pierwszych N firm. Kolejność nie ma znaczenia.
      */
-    Set<String> getFirstNCompany(final int n) {
-        return null;
+    Set<String> getFirstNCompanyNames(final int n) {
+        return holdings.stream()
+                .map(Holding::getAllCompanyNames)
+                .flatMap(List::stream)
+                .limit(5)
+                .collect(Collectors.toSet());
     }
 
     /**
@@ -301,7 +309,20 @@ class WorkShop {
      * Pierwsza instrukcja metody to return.
      */
     AccountType getMostPopularAccountType() {
-        return null;
+        return holdings.stream()
+                .map(Holding::getCompanies)
+                .flatMap(List::stream)
+                .map(Company::getUsers)
+                .flatMap(List::stream)
+                .map(User::getAccounts)
+                .flatMap(List::stream)
+                .map(Account::getType)
+                .collect(Collectors.groupingBy(
+                x->x, Collectors.counting()))
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .get();
     }
 
     /**

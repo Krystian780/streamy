@@ -1,5 +1,7 @@
 package pl.michal.workshops.domain;
 
+import lombok.Data;
+
 public enum AccountType {
     ROR1("Rachunek biezacy"),
     ROR2("Internetowy hit"),
@@ -14,4 +16,7 @@ public enum AccountType {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 }

@@ -10,15 +10,10 @@ import java.util.List;
 public class User {
 
     private final String firstName;
-
     private final String lastName;
-
     private final Sex sex;
-
     private final int age;
-
     private final List<Account> accounts;
-
     private final List<Permit> permits;
 
     public long getAccountsSize(){
